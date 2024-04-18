@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students page</title>
+    <style>
+      body {
+	scroll-behavior: smooth;
+	background: #FFF;
+    }
+    .h{
+    text-align: center;
+    }
+    .main {
+   width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+
+    }
+    .form{
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    </style>
+</head>
+<body>
+
+<div class="h">
+<h1>Students</h1>
+<h2>View All Students</h2>
+</div>
+
+<div class="main">
+
+<table>
+    <tr class ='tb'>
+        <th>STUDENT NAME</th>
+        <th>STUDENT AGE</th>
+    </tr>
+    <tr th:each="st: ${students}">
+        <td th:text="${st.name}"></td>
+        <td th:text="${st.age}"></td>
+    </tr>
+</table>
+    </div>
+    <div class = "form">
+
+<h2>Add a student</h2>
+<form action="student" method="post">
+    Name: <input type="text" name="name"> <br />
+    Age: <input type="number" step="any" name="age"> <br />
+    <button type="submit">Add student</button>
+</form>
+    </div>
+</body>
+</html>
