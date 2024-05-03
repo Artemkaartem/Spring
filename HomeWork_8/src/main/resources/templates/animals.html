@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Animals</h1>
+<h2>View all animals</h2>
+
+<table>
+    <tr>
+        <th>Animal name : </th>
+        <th>Animal age</th>
+    </tr>
+    <tr th:each="p: ${animals}" >
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.age}"></td>
+    </tr>
+</table>
+
+<h2>Add an animal</h2>
+<form action="/animals" method="post">
+    Name: <input type="text" name="name"><br />
+    Age: <input type="number" step="any" name="age"><br />
+    <button type="submit">Add an animal</button>
+</form>
+</body>
+</html>
